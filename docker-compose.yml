@@ -13,5 +13,5 @@ services:
         CPP_CHECK_VER: 1.74
         OSELAS_TOOL_CHAIN: oselas.toolchain-2016.06.1-arm-v7a-linux-gnueabihf-gcc-5.4.0-glibc-2.23-binutils-2.26-kernel-4.6-sanitized
         #OSELAS_TOOL_CHAIN: oselas.toolchain-2013.12.2-arm-v7a-linux-gnueabihf-gcc-4.8.3-glibc-2.18-binutil
-    image: buildenv-tq:0.0.0
+    image: unimock/buildenv-tq:0.0.0
 
