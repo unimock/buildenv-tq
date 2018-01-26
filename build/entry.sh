@@ -1,8 +1,10 @@
 #!/bin/bash
 
-#echo "ATK_GIT_REPO=${ATK_GIT_REPO}"
-#echo "X=$X"
-#echo "PAR=<$*>"
+
+groupadd -g `id -g` $USER
+useradd -u `id -u` -g `id -g`  $USER
+chown -Rvf $USER /root  
+
 _help()
 {
   echo ""

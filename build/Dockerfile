@@ -31,7 +31,7 @@ RUN apt-get clean                                      && \
 # install cppcheck
 #
 ARG CPP_CHECK_VER="1.74"
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libpcre3 libpcre3-dev python wget build-essential                                                           && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libpcre3 libpcre3-dev python wget build-essential sudo                                                          && \
     mkdir -p /xxx/cppcheck                                                                                                              && \
     cd /xxx/cppcheck                                                                                                                    && \
     wget https://sourceforge.net/projects/cppcheck/files/cppcheck/${CPP_CHECK_VER}/cppcheck-${CPP_CHECK_VER}.tar.bz2                    && \
@@ -53,12 +53,14 @@ RUN echo "deb http://debian.pengutronix.de/debian/ sid main contrib non-free" > 
 RUN apt-get install -y lcov valgrind cmake git
 ##############################################################
 
-RUN apt-get install -y iputils-ping
+RUN apt-get install -y iputils-ping openssh-client
 
 # cleanup
 RUN apt-get clean                                      && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN echo "ALL ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+RUN chmod a+s /usr/sbin/useradd /usr/sbin/groupadd /bin/chmod /bin/chown
 RUN mkdir -p /workspace
 VOLUME /workspace
 WORKDIR /workspace
