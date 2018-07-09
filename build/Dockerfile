@@ -50,7 +50,7 @@ RUN echo "deb http://debian.pengutronix.de/debian/ sid main contrib non-free" > 
     apt-get install -y --allow-unauthenticated ${OSELAS_TOOL_CHAIN}
 ##############################################################
 # others
-RUN apt-get install -y lcov valgrind cmake git
+RUN apt-get install -y lcov valgrind cmake git telnet
 ##############################################################
 
 RUN apt-get install -y iputils-ping openssh-client
